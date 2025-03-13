@@ -67,24 +67,24 @@ A estrutura de uma árvore de decisão é composta por três elementos básicos:
     Após a construção da árvore completa, pode ser aplicada uma técnica de poda para remover nós que não agregam valor significativo em termos de decisão ou predição. Essa etapa é fundamental para evitar o sobreajuste (overfitting).
 
 
-- **Visualização e Compreensão**
-Visualmente, tanto as árvores de classificação quanto as de regressão podem ser representadas de maneira análoga:
-- O nó raiz no topo.
-- Ramas que se ramificam para baixo, cada uma representando a aplicação de um teste ou divisão.
-- Nós folha nas extremidades, onde a predição final é apresentada.
+- **Visualização e Compreensão**<br>
+    Visualmente, tanto as árvores de classificação quanto as de regressão podem ser representadas de maneira análoga:
+    - O nó raiz no topo.
+    - Ramas que se ramificam para baixo, cada uma representando a aplicação de um teste ou divisão.
+    - Nós folha nas extremidades, onde a predição final é apresentada.
 
-Contudo, a interpretação das folhas diverge entre os dois tipos de árvore. Enquanto, na classificação, as folhas representam categorias ou classes, na regressão elas indicam valores numéricos que são as predições do modelo.
+    Contudo, a interpretação das folhas diverge entre os dois tipos de árvore. Enquanto, na classificação, as folhas representam categorias ou classes, na regressão elas indicam valores numéricos que são as predições do modelo.
 
 
 - **Vantagens e Desvantagens:**
-- Vantagens:
-    - Fácil de interpretar e visualizar.
-    - Não necessita de pré-processamento complexo, como normalização.
-    - Capaz de lidar tanto com dados categóricos quanto numéricos.
-- Desvantagens:
-    - Tendência a superajustar (overfitting) quando a árvore cresce muito.
-    - Pequenas variações nos dados podem resultar em desenhos de árvore completamente diferentes.
-    - Pode ser enviesada se alguma classe tiver muito mais exemplos do que as demais.
+    - Vantagens:
+        - Fácil de interpretar e visualizar.
+        - Não necessita de pré-processamento complexo, como normalização.
+        - Capaz de lidar tanto com dados categóricos quanto numéricos.
+    - Desvantagens:
+        - Tendência a superajustar (overfitting) quando a árvore cresce muito.
+        - Pequenas variações nos dados podem resultar em desenhos de árvore completamente diferentes.
+        - Pode ser enviesada se alguma classe tiver muito mais exemplos do que as demais.
     
 
 ## Algoritmo Scikit-learn
