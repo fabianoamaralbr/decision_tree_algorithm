@@ -45,7 +45,6 @@ Se o conjunto de dados for muito grande e a árvore crescer muito em profundidad
 
 - **Estrutura da Árvore:**
 A estrutura de uma árvore de decisão é composta por três elementos básicos: nó raiz, nós internos (ou de decisão) e nós folha (ou terminais). Cada um desses elementos desempenha um papel fundamental na organização do fluxo de decisões que o algoritmo utiliza para chegar a uma conclusão.
-<br>
     - **Nó Raiz:**
     É o ponto inicial da árvore, onde se encontra o conjunto completo de dados. Neste nó, o algoritmo seleciona a melhor variável (atributo) para dividir os dados utilizando um critério de seleção — como Entropia, Ganho de Informação ou Índice de Gini, no caso de classificação, ou, para regressão, critérios baseados em erro (por exemplo, erro quadrático).
 <br>
