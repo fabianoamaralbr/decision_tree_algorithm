@@ -3,7 +3,7 @@
 A Árvore de Decisão (Decision Tree) é um dos algoritmos mais populares em machine learning e aprendizado supervisionado. Ele é usado tanto para classificação quanto para regressão, ajudando a tomar decisões com base em perguntas sequenciais e ramificadas que se assemelham a uma árvore. Cada nó interno da árvore representa uma pergunta ou teste em uma ou mais variáveis de entrada, cada ramo representa o resultado dessa decisão, e cada nó folha (ou terminal) representa uma saída ou decisão final.
 
 As árvores de decisão são modelos intuitivos e interpretáveis que podem ser muito eficazes para determinados tipos de problemas. Contudo, seu uso adequado depende do contexto, da natureza dos dados e dos objetivos do problema de machine learning.
-<br>
+
 
 ## Quando Usar a Árvore de Decisão
 
@@ -21,7 +21,7 @@ Em situações que exigem uma solução rápida ou quando se está em fase de pr
 
 - **Problemas com Interação de Variáveis:**
 Quando as interações entre variáveis são importantes para a predição, as árvores de decisão podem, automaticamente, formar regras complexas que capturam essas interações.
-<br>
+
 
 ## Quando Não Usar a Árvore de Decisão
 
@@ -39,7 +39,7 @@ Embora as árvores de decisão possam tratar variáveis contínuas, em certos ce
 
 - **Alto Custo Computacional em Árvores Profundas:**
 Se o conjunto de dados for muito grande e a árvore crescer muito em profundidade, o custo computacional pode se tornar um problema, e o modelo poderá capturar padrões específicos demais do treinamento, resultando em baixa capacidade de generalização.
-<br>
+
 
 ## Como funciona?
 
@@ -47,55 +47,45 @@ Se o conjunto de dados for muito grande e a árvore crescer muito em profundidad
 A estrutura de uma árvore de decisão é composta por três elementos básicos: nó raiz, nós internos (ou de decisão) e nós folha (ou terminais). Cada um desses elementos desempenha um papel fundamental na organização do fluxo de decisões que o algoritmo utiliza para chegar a uma conclusão.
     - **Nó Raiz:**
     É o ponto inicial da árvore, onde se encontra o conjunto completo de dados. Neste nó, o algoritmo seleciona a melhor variável (atributo) para dividir os dados utilizando um critério de seleção — como Entropia, Ganho de Informação ou Índice de Gini, no caso de classificação, ou, para regressão, critérios baseados em erro (por exemplo, erro quadrático).
-<br>
     - **Nós Internos (ou de Decisão):**
     Após o nó raiz, a árvore se ramifica em nós internos, onde cada nó representa uma pergunta ou teste sobre uma variável específica. Cada teste pode determinar, por exemplo, se um determinado valor é menor ou maior que um limiar. Em cada divisão, a meta é maximizar a homogeneidade dos subconjuntos de dados resultantes, ou seja, reduzir a impureza ou o erro.
-<br>
     - **Nós Folha (ou Terminais)**
     Estes são os pontos finais da árvore, onde não há mais divisões. Em problemas de classificação, cada folha contém um rótulo ou a classe prevista (por exemplo, "Cliente fidelizado" ou "Cliente não fidelizado"). Em problemas de regressão, cada folha pode conter um valor contínuo, geralmente a média dos valores das amostras que caíram nessa região.
-<br>
+
 
 - **Detalhamento da Construção da Árvore**
-<br>
     1. **Seleção do Atributo (No Raiz e Nós Internos):**
     O processo começa no nó raiz, onde o algoritmo avalia cada atributo do conjunto de dados aplicando um critério de divisão. Para classificação, as reduções na impureza são calculadas para cada atributo, enquanto que, para regressão, o critério de divisão busca a redução da variância. A variável que proporciona a maior melhoria na homogeneidade dos dados é escolhida para realizar a divisão.
-<br>
     2. **Divisão dos Dados:**
     Em cada nó, os dados são particionados de acordo com os valores ou categorias do atributo selecionado. Em problemas de classificação, essa divisão pode ser binária (sim/não) ou multiclasses dependendo do número de categorias. Em problemas de regressão, a divisão geralmente é feita com base em um valor limiar definido para a variável contínua.
-<br>
     3. **Recursão:**
     Este processo de seleção de atributo e divisão ocorre recursivamente para cada nó resultante até que uma condição de parada seja alcançada. As condições de parada podem incluir:
-<br>
-        * O nó se torna puro (todos os exemplos pertencem à mesma classe ou o desvio é mínimo em regressão).
-        * Um número mínimo de amostras é atingido.
-        * Uma profundidade máxima da árvore é alcançada.
-<br>
+    * O nó se torna puro (todos os exemplos pertencem à mesma classe ou o desvio é mínimo em regressão).
+    * Um número mínimo de amostras é atingido.
+    * Uma profundidade máxima da árvore é alcançada.
     4. **Poda:**
     Após a construção da árvore completa, pode ser aplicada uma técnica de poda para remover nós que não agregam valor significativo em termos de decisão ou predição. Essa etapa é fundamental para evitar o sobreajuste (overfitting).
-<br>
+
 
 - **Visualização e Compreensão**
 Visualmente, tanto as árvores de classificação quanto as de regressão podem ser representadas de maneira análoga:
-<br>
-    - O nó raiz no topo.
-    - Ramas que se ramificam para baixo, cada uma representando a aplicação de um teste ou divisão.
-    - Nós folha nas extremidades, onde a predição final é apresentada.
-<br>
+- O nó raiz no topo.
+- Ramas que se ramificam para baixo, cada uma representando a aplicação de um teste ou divisão.
+- Nós folha nas extremidades, onde a predição final é apresentada.
 
-    Contudo, a interpretação das folhas diverge entre os dois tipos de árvore. Enquanto, na classificação, as folhas representam categorias ou classes, na regressão elas indicam valores numéricos que são as predições do modelo.
-<br>
+Contudo, a interpretação das folhas diverge entre os dois tipos de árvore. Enquanto, na classificação, as folhas representam categorias ou classes, na regressão elas indicam valores numéricos que são as predições do modelo.
+
 
 - **Vantagens e Desvantagens:**
-<br>
-    - Vantagens:
-        - Fácil de interpretar e visualizar.
-        - Não necessita de pré-processamento complexo, como normalização.
-        - Capaz de lidar tanto com dados categóricos quanto numéricos.
-    - Desvantagens:
-        - Tendência a superajustar (overfitting) quando a árvore cresce muito.
-        - Pequenas variações nos dados podem resultar em desenhos de árvore completamente diferentes.
-        - Pode ser enviesada se alguma classe tiver muito mais exemplos do que as demais.
-<br>
+- Vantagens:
+    - Fácil de interpretar e visualizar.
+    - Não necessita de pré-processamento complexo, como normalização.
+    - Capaz de lidar tanto com dados categóricos quanto numéricos.
+- Desvantagens:
+    - Tendência a superajustar (overfitting) quando a árvore cresce muito.
+    - Pequenas variações nos dados podem resultar em desenhos de árvore completamente diferentes.
+    - Pode ser enviesada se alguma classe tiver muito mais exemplos do que as demais.
+    
 
 ## Algoritmo Scikit-learn
 
