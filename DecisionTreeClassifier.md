@@ -1,6 +1,6 @@
 # Árvore de Classificação
 
-| Atributo | Descrição |
+| Parâmetros | Descrição |
 | --- | --- |
 | `criterion` | O critério de função para medir a qualidade de uma divisão. Pode ser "gini" para o índice de Gini ou "entropy" para a informação de entropia. |
 | `splitter` | A estratégia usada para escolher a divisão em cada nó. Pode ser "best" para escolher a melhor divisão ou "random" para escolher a melhor divisão aleatória. |
@@ -14,6 +14,7 @@
 | `min_impurity_decrease` | Um nó será dividido se essa divisão induzir uma diminuição da impureza maior ou igual a este valor. |
 | `class_weight` | Pesos associados às classes. Se None, todos os pesos das classes são considerados iguais. |
 | `ccp_alpha` | Complexidade de parâmetro de poda mínima. Utilizado para a poda mínima de custo-complexidade. |
+| `monotonic_cst` | Indica a restrição de monotonicidade a ser imposta em cada recurso. |
 
 - **Exemplo de uso**
 
@@ -294,3 +295,13 @@ Um valor maior de "ccp_alpha" fará com que a poda seja mais agressiva, resultan
 
 #### Ajuste Fino:
 Encontrar o valor adequado para "ccp_alpha" é essencial para atingir um bom equilíbrio entre viés e variância. Um valor muito baixo pode deixar muitos nós irrelevantes, enquanto um valor muito alto pode tornar a árvore excessivamente simples e incapaz de capturar padrões importantes.
+
+## `monotonic_cst`
+
+A monotonicidade, em modelos de machine learning, refere-se à propriedade de que a previsão do modelo se comporta de forma consistente com uma relação de ordem definida em determinadas variáveis. Por exemplo, em um cenário onde se espera que um aumento em uma variável (como renda) resulte em um aumento na previsão (como pontuação de crédito) ou, alternativamente, que um aumento em outra variável (como idade) possa estar associado a uma diminuição na previsão.
+
+Quando dizemos que há aumento da monotonicidade ou que o modelo é monotonicamente crescente em relação a uma variável, isso significa que à medida que o valor dessa variável aumenta, a predição do modelo também aumenta (ou, no mínimo, não diminui). Por outro lado, quando se diz que há diminuição da monotonicidade ou que o modelo é monotonicamente decrescente em relação a uma variável, significa que conforme o valor dessa variável aumenta, a predição do modelo diminui (ou, no mínimo, não aumenta).
+
+Restrições monotônicas são especialmente importantes quando o conhecimento de domínio indica que a relação entre uma variável e a resposta deve seguir uma direção específica. Isso pode aumentar a interpretabilidade e a confiabilidade do modelo.
+
+Você pode especificar uma restrição monotônica em cada recurso usando o parâmetro. Para cada feição, um valor de 0 indica não restrição, enquanto 1 e -1 indicam um aumento monotônico e restrição de diminuição monotônica, respectivamente.
